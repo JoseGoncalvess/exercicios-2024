@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'pages/activity/activity.dart';
 import 'pages/calendar/calendar.dart';
 import 'package:from_css_color/from_css_color.dart';
 
@@ -18,7 +19,8 @@ class ChuvaDart extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: fromCssColor('#456189')),
         useMaterial3: true,
       ),
-      home: const Calendar(),
+      home: Activity()
+      // const Calendar(),
     );
   }
 }

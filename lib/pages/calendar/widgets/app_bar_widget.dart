@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:from_css_color/from_css_color.dart';
 
-class CustomAppBarWidget extends StatelessWidget {
+class AppBarWidget extends StatelessWidget {
 
-  const CustomAppBarWidget({ super.key });
+  const AppBarWidget({ super.key });
 
    @override
    Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class CustomAppBarWidget extends StatelessWidget {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-       mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -69,5 +69,5 @@ class CustomAppBarWidget extends StatelessWidget {
               ],
             ),
           );
-  }
+}
 }

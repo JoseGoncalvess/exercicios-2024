@@ -1,5 +1,7 @@
 
+import 'package:chuva_dart/widgets/custom_app_bar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Activity extends StatefulWidget {
   const Activity({super.key});
@@ -13,32 +15,19 @@ class _ActivityState extends State<Activity> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Theme.of(context).colorScheme.inversePrimary,
-      child: Column(children: [
-        Text(
-          'Activity title',
-          style: Theme.of(context).textTheme.bodySmall,
+    return Scaffold(
+      body:Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: 
+        Column(
+          children: [
+            CustomAppBarWidget(),
+            
+          ],
         ),
-        const Text('A Física dos Buracos Negros Supermassivos'),
-        const Text('Mesa redonda'),
-        const Text('Domingo 07:00h - 08:00h'),
-        const Text('Sthepen William Hawking'),
-        const Text('Maputo'),
-        const Text('Astrofísica e Cosmologia'),
-        ElevatedButton.icon(
-          onPressed: () {
-            setState(() {
-              _favorited = !_favorited;
-            });
-          },
-          icon: _favorited
-              ? const Icon(Icons.star)
-              : const Icon(Icons.star_outline),
-          label: Text(
-              _favorited ? 'Remover da sua agenda' : 'Adicionar à sua agenda'),
-        )
-      ]),
-    );
+      )
+      
+      );
   }
 }

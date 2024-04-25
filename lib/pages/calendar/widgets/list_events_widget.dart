@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:from_css_color/from_css_color.dart';
-
 import 'event_card_widget.dart';
 
 class ListEventsWidget extends StatelessWidget {
@@ -16,8 +14,7 @@ class ListEventsWidget extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.7, 
           child: ListView.builder(
             itemCount: 10,
-            itemBuilder: (context, index) => EventCardWidget() ,
-            
+            itemBuilder: (context, index) => const EventCardWidget() , 
           ),
           );
        
