@@ -10,7 +10,7 @@ class CustomButtomFavor extends StatefulWidget {
 
 class _CustomButtomFavorState extends State<CustomButtomFavor> {
   IconData icon = Icons.star;
-  String textButtom = "";
+  String textButtom = "Adicionar a sua Agenda";
 
   void favoractivity(){
 if (icon == Icons.star) {
@@ -39,12 +39,12 @@ if (icon == Icons.star) {
 
    @override
    Widget build(BuildContext context) {
-       return             SizedBox(
+       return SizedBox(
               width:MediaQuery.of(context).size.width * 0.93,
               height: MediaQuery.of(context).size.height * 0.06,
               child: ElevatedButton( style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(
-                  Theme.of(context).primaryColor
+                 icon == Icons.refresh ? Colors.grey : Theme.of(context).primaryColor
                 ),
                 shape: MaterialStateProperty.all(
                   const RoundedRectangleBorder(
@@ -58,7 +58,10 @@ if (icon == Icons.star) {
                   mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(icon, color: Colors.white,),
-                  Text(textButtom, style: TextStyle(color: Colors.white),)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Text(textButtom, style: const TextStyle(color: Colors.white),),
+                  )
                 ],
               )),
             );

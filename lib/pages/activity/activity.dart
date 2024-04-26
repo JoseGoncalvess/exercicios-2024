@@ -2,9 +2,8 @@
 import 'package:chuva_dart/pages/activity/widget/card_info_activity.dart';
 import 'package:chuva_dart/pages/activity/widget/custom_buttom_favor.dart';
 import 'package:chuva_dart/widgets/custom_app_bar_widget.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:chuva_dart/widgets/person_profile_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Activity extends StatefulWidget {
   const Activity({super.key});
@@ -41,8 +40,20 @@ class _ActivityState extends State<Activity> {
               padding: const EdgeInsets.all(8.0),
               child: Text("A Física dos Buracos Negros Supermassivos",textAlign: TextAlign.center,style: TextStyle(fontSize: MediaQuery.of(context).size.width * 0.06,fontWeight: FontWeight.w700, )),
             ),
-            CardInfoActivity(),
-            CustomButtomFavor()
+            const CardInfoActivity(),
+            const CustomButtomFavor(),
+            Container(
+              alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.25,
+                child: Padding(
+                  padding:  EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
+                  child: const Text('he standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.', style: TextStyle(fontWeight: FontWeight.w500),textAlign: TextAlign.left,),
+                ),
+
+            ),
+            PersonProfileWidget()
+
             
 
           ],
@@ -52,3 +63,4 @@ class _ActivityState extends State<Activity> {
       );
   }
 }
+// Image.network(fit: BoxFit.cover,'https://images.mubicdn.net/images/cast_member/27037/cache-7903-1427473662/image-w856.jpg?size=800x',)
