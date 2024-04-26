@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'pages/activity/activity.dart';
 import 'package:from_css_color/from_css_color.dart';
 
+import 'pages/person details/person_details.dart';
+
 void main() {
   runApp(const ChuvaDart());
 }
@@ -17,7 +19,7 @@ class ChuvaDart extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: fromCssColor('#456189')),
         useMaterial3: true,
       ),
-      home: const Activity()
+      home: const PersonDetails()
     );
   }
 }
