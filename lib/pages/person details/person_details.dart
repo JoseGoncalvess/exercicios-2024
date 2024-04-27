@@ -1,5 +1,6 @@
 import 'package:chuva_dart/pages/person%20details/widgets/custom_details_person.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../components/custom_app_bar_widget.dart';
 

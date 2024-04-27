@@ -30,7 +30,7 @@ class _EventCardWidgetState extends State<EventCardWidget> {
                         ]
                       ),
                       width: MediaQuery.of(context).size.width * 0.95,
-                      height:MediaQuery.of(context).size.height * 0.17 ,
+                      height:MediaQuery.of(context).size.height * 0.13 ,
                       child: Row(
                         children: [
                      Container(
