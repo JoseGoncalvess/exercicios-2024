@@ -9,11 +9,11 @@ final GoRouter goRouter = GoRouter(routes: [
     builder: (context, state) => const Calendar(),
   ),
   GoRoute(
-    path: "/activity",
-    builder: (context, state) => const Activity(),
-  ),
+      path: "/activity/:isActivity",
+      builder: (context, state) => Activity(
+          isActivity: bool.parse(state.pathParameters['isActivity']!))),
   GoRoute(
-    path: "/activity/personDetails",
+    path: "/activity/:isActivity/persondetatils",
     builder: (context, state) => const PersonDetails(),
   )
 ]);

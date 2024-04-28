@@ -1,7 +1,6 @@
 import 'package:chuva_dart/pages/activity/activity_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
+import 'package:go_router/go_router.dart';
 import '../../components/custom_app_bar_widget.dart';
 import '../../components/person_profile_widget.dart';
 import 'widget/card_info_activity.dart';
@@ -11,13 +10,14 @@ class ActivityView extends ActivityViewModel {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const CustomAppBarWidget(),
+        appBar: CustomAppBarWidget(
+          press: () => context.push('/'),
+        ),
         body: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
-              // CustomAppBarWidget(),
               Container(
                 alignment: Alignment.centerLeft,
                 decoration: const BoxDecoration(color: Colors.purple),
@@ -35,6 +35,32 @@ class ActivityView extends ActivityViewModel {
                   ),
                 ),
               ),
+              widget.isActivity
+                  ? Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * 0.07,
+                      color: Colors.amber,
+                      child: const Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Icon(
+                              Icons.calendar_month,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Flexible(
+                            child: Text(
+                              'Essa atividadefaz parte de "Vida alenda a terra : Uma pesectiva atronomica"',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(inherit: true),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  : Container(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text("A Física dos Buracos Negros Supermassivos",
@@ -60,7 +86,10 @@ class ActivityView extends ActivityViewModel {
                   ),
                 ),
               ),
-              PersonProfileWidget()
+              PersonProfileWidget(
+                press: () => context
+                    .push('/activity/${widget.isActivity}/persondetatils'),
+              )
             ],
           ),
         ));

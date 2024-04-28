@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class CustomAppBarWidget extends StatelessWidget
     implements PreferredSizeWidget {
-  const CustomAppBarWidget({super.key});
+  const CustomAppBarWidget({super.key, required this.press});
+
+  final Function press;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -15,30 +17,27 @@ class CustomAppBarWidget extends StatelessWidget
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(color: Theme.of(context).primaryColor),
         height: MediaQuery.of(context).size.height * 0.14,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                      color: Colors.white,
-                      size: MediaQuery.of(context).size.width * 0.08,
-                      Icons.arrow_back_ios_new_outlined)),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.65,
-                child: Text(
-                  'Chuva 💜 Flutter',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: MediaQuery.of(context).size.width * 0.05,
-                      fontWeight: FontWeight.w500),
-                ),
-              )
-            ],
-          ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+                onPressed: () => press(),
+                icon: Icon(
+                    color: Colors.white,
+                    size: MediaQuery.of(context).size.width * 0.07,
+                    Icons.arrow_back_ios_new_outlined)),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.65,
+              child: Text(
+                'Chuva 💜 Flutter',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    fontWeight: FontWeight.w500),
+              ),
+            )
+          ],
         ),
       ),
     );

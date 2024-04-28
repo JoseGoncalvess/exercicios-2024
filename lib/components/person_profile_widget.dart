@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PersonProfileWidget extends StatefulWidget {
-  const PersonProfileWidget({super.key});
+  const PersonProfileWidget({super.key, required this.press});
+  final Function press;
 
   @override
   State<PersonProfileWidget> createState() => _PersonProfileWidgetState();
@@ -10,7 +11,7 @@ class PersonProfileWidget extends StatefulWidget {
 class _PersonProfileWidgetState extends State<PersonProfileWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.25,
       child: Column(
@@ -28,6 +29,7 @@ class _PersonProfileWidgetState extends State<PersonProfileWidget> {
                 ),
               )),
           ListTile(
+            onTap: () => widget.press(),
             leading: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.16,
                 height: MediaQuery.of(context).size.height * 0.16,

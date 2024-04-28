@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
+import 'package:go_router/go_router.dart';
 import '../../components/custom_app_bar_widget.dart';
 import '../calendar/widgets/event_card_widget.dart';
 import 'person_details_view_model.dart';
@@ -10,13 +9,15 @@ class PersonDetailsView extends PersonDetailsViewModel {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      appBar: CustomAppBarWidget(
+        press: () => context.pop(),
+      ),
+      body: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Column(
           children: [
-            CustomAppBarWidget(),
-            CustomDetailsPerson(),
+            const CustomDetailsPerson(),
             Container(
               alignment: Alignment.center,
               width: MediaQuery.of(context).size.width,
@@ -40,47 +41,51 @@ class PersonDetailsView extends PersonDetailsViewModel {
                 ),
               ),
             ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.432,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: MediaQuery.of(context).size.width * 0.05),
-                    child: Text(
-                      "Atividades",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: MediaQuery.of(context).size.width * 0.05),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: MediaQuery.of(context).size.width * 0.07),
-                    child: Text(
-                      "dom.,26/11/2023",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: MediaQuery.of(context).size.width * 0.05),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  SingleChildScrollView(
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 0.3601,
-                      color: Colors.white,
-                      child: ListView.builder(
-                        itemCount: 5,
-                        itemBuilder: (context, index) =>
-                            const EventCardWidget(),
+            SingleChildScrollView(
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.47,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.of(context).size.width * 0.05),
+                      child: Text(
+                        "Atividades",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: MediaQuery.of(context).size.width * 0.05),
+                        textAlign: TextAlign.left,
                       ),
                     ),
-                  )
-                ],
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.07),
+                      child: Text(
+                        "dom.,26/11/2023",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: MediaQuery.of(context).size.width * 0.05),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    SingleChildScrollView(
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height * 0.398,
+                        color: Colors.white,
+                        child: ListView.builder(
+                          padding: const EdgeInsets.only(top: 7),
+                          itemCount: 3,
+                          itemBuilder: (context, index) => EventCardWidget(
+                            perss: () => context.go('/activity/${false}'),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ],
