@@ -78,8 +78,17 @@ class PersonDetailsView extends PersonDetailsViewModel {
                         child: ListView.builder(
                           padding: const EdgeInsets.only(top: 7),
                           itemCount: 3,
-                          itemBuilder: (context, index) => EventCardWidget(
-                            perss: () => context.go('/activity/${false}'),
+                          itemBuilder: (context, index) => GestureDetector(
+                            onTap: () => {},
+                            child: EventCardWidget(
+                              colorsBand: '#C24FFE',
+                              eventName: '',
+                              end: DateTime(2023),
+                              start: DateTime(2023),
+                              people: [],
+                              title: '',
+                              
+                            ),
                           ),
                         ),
                       ),

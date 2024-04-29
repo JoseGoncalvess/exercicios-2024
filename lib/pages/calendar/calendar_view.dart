@@ -1,5 +1,6 @@
 import 'package:chuva_dart/pages/calendar/calendar_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'widgets/app_bar_widget.dart';
 import 'widgets/data_select_widget.dart';
 import 'widgets/list_events_widget.dart';
@@ -23,9 +24,8 @@ class CalendarView extends CalendarViewModel {
               ValueListenableBuilder(
                 valueListenable: events,
                 builder: (context, value, child) => ListEventsWidget(
-                  function: () => {},
+                  onTap: (isActivity, event) => context.go('/activity/$isActivity/$event'),
                   listev: value,
-                  stateLoad: stateData.value,
                   
                 ),
               ),

@@ -7,6 +7,7 @@ import 'widget/card_info_activity.dart';
 import 'widget/custom_buttom_favor.dart';
 
 class ActivityView extends ActivityViewModel {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

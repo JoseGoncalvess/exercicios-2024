@@ -25,7 +25,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 IconButton(
-                    onPressed: () => ontap(),
+                    onPressed: () => {},
                     icon: Icon(
                         color: Colors.white,
                         size: MediaQuery.of(context).size.width * 0.1,
@@ -76,7 +76,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                                 const BorderRadius.all(Radius.circular(45)),
                             color: fromCssColor('#306DC3')),
                         child: IconButton(
-                            onPressed: () {},
+                            onPressed:() => ontap(),
                             icon: const Icon(Icons.calendar_month_outlined))),
                   ),
                   Container(
