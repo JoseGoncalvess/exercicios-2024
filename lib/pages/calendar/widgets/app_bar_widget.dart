@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:from_css_color/from_css_color.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
-  const AppBarWidget({super.key, required this.ct});
+  const AppBarWidget({super.key, required this.ct, required this.ontap});
   final BuildContext ct;
+  final Function() ontap;
 
   @override
   Size get preferredSize => Size.fromHeight(MediaQuery.of(ct).size.height);
@@ -24,7 +25,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () => ontap(),
                     icon: Icon(
                         color: Colors.white,
                         size: MediaQuery.of(context).size.width * 0.1,
