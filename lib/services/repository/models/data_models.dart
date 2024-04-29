@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'people_models.dart';
+
 class DataModels {
   int count;
   Links links;
@@ -38,7 +40,7 @@ class Evento {
   List<Location> locations;
   Type type;
   List<dynamic> papers;
-  List<dynamic> people;
+  List<PeopleModels> people;
   int status;
   int weight;
   dynamic addons;
@@ -78,7 +80,7 @@ class Evento {
             json["locations"].map((x) => Location.fromJson(x))),
         type: Type.fromJson(json["type"]),
         papers: List<dynamic>.from(json["papers"].map((x) => x)),
-        people: List<dynamic>.from(json["people"].map((x) => x)),
+        people: List<PeopleModels>.from(json["people"].map((x) => PeopleModels.fromJson(x))),
         status: json["status"],
         weight: json["weight"],
         addons: json["addons"],
