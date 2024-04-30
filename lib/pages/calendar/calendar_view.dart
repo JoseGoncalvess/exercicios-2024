@@ -1,4 +1,5 @@
 import 'package:chuva_dart/pages/calendar/calendar_view_model.dart';
+import 'package:chuva_dart/services/helpers/its_time.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'widgets/app_bar_widget.dart';
@@ -10,7 +11,7 @@ class CalendarView extends CalendarViewModel {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBarWidget(
-          ontap: ()=> fullData(),
+          ontap: ()=> ItsTime().resumday("domingo"),
           ct: context,
         ),
         body: SizedBox(

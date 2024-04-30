@@ -1,8 +1,13 @@
+import 'package:chuva_dart/services/helpers/geter_sigla.dart';
 import 'package:flutter/material.dart';
 
 class CustomDetailsPerson extends StatelessWidget {
+  final String picture;
+  final String institution;
+  final String name;
 
-  const CustomDetailsPerson({ super.key });
+
+  const CustomDetailsPerson({ super.key, required this.picture, required this.institution, required this.name });
 
    @override
    Widget build(BuildContext context) {
@@ -13,11 +18,15 @@ class CustomDetailsPerson extends StatelessWidget {
             height: MediaQuery.of(context).size.height*0.16,
             child: Row(
               children: [
-               const  Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  child: CircleAvatar(
+                 Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: 10.0),
+                  child:picture.isEmpty?CircleAvatar(
                     radius: 60,
-                    backgroundImage: NetworkImage('https://images.mubicdn.net/images/cast_member/27037/cache-7903-1427473662/image-w856.jpg?size=800x')
+                    backgroundColor: Theme.of(context).primaryColor,
+                    child: Text(GeterSigla().geterSiglas(name), style: TextStyle(fontSize: MediaQuery.of(context).size.width *0.15, color: Colors.white),),
+                  ): CircleAvatar(
+                    radius: 60,
+                    backgroundImage: NetworkImage(picture)
                   ),
                 ),
                 Container(
@@ -28,8 +37,8 @@ class CustomDetailsPerson extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text("Stephen William Hawking",textAlign: TextAlign.left, style: TextStyle(letterSpacing: 0.01, fontWeight: FontWeight.w500, fontSize: MediaQuery.of(context).size.width *0.06),),
-                        Text("Universsidade de Coinbra",style: TextStyle(fontWeight: FontWeight.w400,fontSize: MediaQuery.of(context).size.width *0.05, letterSpacing: 0.1),)
+                        Text(name,textAlign: TextAlign.left, style: TextStyle(letterSpacing: 0.01, fontWeight: FontWeight.w500, fontSize: MediaQuery.of(context).size.width *0.06),),
+                        Text(institution,style: TextStyle(fontWeight: FontWeight.w400,fontSize: MediaQuery.of(context).size.width *0.04, letterSpacing: 0.1),)
                       ],
          ),              )
               ],

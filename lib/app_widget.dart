@@ -10,7 +10,8 @@ class ChuvaDart extends StatelessWidget {
     return MaterialApp.router(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      supportedLocales: const [Locale('pt', 'BR')],
+      supportedLocales: const [Locale('pt'), Locale('BR')],
+      
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate

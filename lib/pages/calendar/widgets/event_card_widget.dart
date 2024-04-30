@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:chuva_dart/services/helpers/its_time.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:from_css_color/from_css_color.dart';
 
 import '../../../services/repository/models/people_models.dart';
@@ -44,7 +43,7 @@ class _EventCardWidgetState extends State<EventCardWidget> {
               children: [
                 Container(
                   decoration:  BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(6),
                         bottomLeft: Radius.circular(6)),
                     color: fromCssColor(widget.colorsBand),

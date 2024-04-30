@@ -1,7 +1,9 @@
 import 'package:chuva_dart/pages/activity/activity_view_model.dart';
 import 'package:chuva_dart/services/helpers/html_convert.dart';
 import 'package:flutter/material.dart';
+import 'package:from_css_color/from_css_color.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import '../../components/custom_app_bar_widget.dart';
 import '../../components/person_profile_widget.dart';
 import 'widget/card_info_activity.dart';
@@ -14,20 +16,20 @@ class ActivityView extends ActivityViewModel {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: CustomAppBarWidget(
-          press: () => context.push('/'),
+          press: () => context.pop(),
         ),
-        body: Container(
+        body: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
               Container(
                 alignment: Alignment.centerLeft,
-                decoration: const BoxDecoration(color: Colors.purple),
+                decoration:  BoxDecoration(color:fromCssColor(widget.evento.category.color??"#C7B884")),
                 height: MediaQuery.of(context).size.height * 0.05,
                 width: MediaQuery.of(context).size.width,
                 child: Padding(
-                  padding:  EdgeInsets.only(left: 10.0),
+                  padding:  const EdgeInsets.only(left: 10.0),
                   child: Text(
                     widget.evento.category.title.ptBr!,
                     style: TextStyle(
@@ -42,11 +44,11 @@ class ActivityView extends ActivityViewModel {
                   ? Container(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height * 0.07,
-                      color: Colors.amber,
-                      child:  Row(
+                      color: Theme.of(context).primaryColor,
+                      child:   Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Padding(
+                          const Padding(
                             padding: EdgeInsets.symmetric(horizontal: 8.0),
                             child: Icon(
                               Icons.calendar_month,
@@ -55,9 +57,9 @@ class ActivityView extends ActivityViewModel {
                           ),
                           Flexible(
                             child: Text(
-                              "Essa materia faz uss ",
+                              'Essa Atividade é parte de "${widget.evento.title.ptBr}" ',
                               textAlign: TextAlign.left,
-                              style: TextStyle(inherit: true),
+                              style: const TextStyle(inherit: true, color: Colors.white),
                             ),
                           )
                         ],
@@ -82,9 +84,9 @@ class ActivityView extends ActivityViewModel {
                 child: Padding(
                   padding:
                       EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
-                  child:  Text(
-                    HtmlConvert().converttoString(widget.evento.description.ptBr!) ?? "",
-                    style: TextStyle(fontWeight: FontWeight.w500),
+                  child:  Text(widget.evento.description.ptBr==null? "":
+                    HtmlConvert().converttoString(widget.evento.description.ptBr!)  ,
+                    style: const TextStyle(fontWeight: FontWeight.w500),
                     textAlign: TextAlign.left,
                   ),
                 ),
@@ -97,13 +99,13 @@ class ActivityView extends ActivityViewModel {
                   "Palestrante",
                   style: TextStyle(
                       fontWeight: FontWeight.w700,
-                      fontSize: MediaQuery.of(context).size.width * 0.05),
+                      fontSize: MediaQuery.of(context).size.width * 0.05), 
                 ),
               )),
               PersonProfileWidget(
                 peoples: widget.evento.people,
-                press: () => context
-                    .push('/activity/${widget.isActivity}/persondetatils'),
+                ontap:( people) => context
+                    .push('/activity/${widget.isActivity}/persondetatils', extra:[people, DateFormat.EEEE("pt_BR").format(widget.evento.start), DateFormat('dd/MM/yyyy').format(widget.evento.start)])
               )
             ],
           ),

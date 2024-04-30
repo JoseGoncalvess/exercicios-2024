@@ -29,7 +29,7 @@ class _CardDateSelectWidgetState extends State<CardDateSelectWidget> {
            children: [
              Padding(
                padding: const EdgeInsets.symmetric(vertical: 8.0),
-               child: Text(widget.day,style: TextStyle(fontSize: MediaQuery.sizeOf(context).width *0.06, color:widget.select?Colors.white:Color.fromARGB(255, 180, 173, 173)),),
+               child: Text(widget.day,style: TextStyle(fontSize: MediaQuery.sizeOf(context).width *0.06, color:widget.select?Colors.white:const Color.fromARGB(255, 180, 173, 173)),),
              ),
              Container(
                color:widget.select? const  Color.fromARGB(255, 180, 173, 173):const Color.fromARGB(0, 0, 150, 135),

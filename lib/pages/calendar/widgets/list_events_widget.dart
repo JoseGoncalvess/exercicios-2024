@@ -1,6 +1,3 @@
-
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -16,11 +13,11 @@ class ListEventsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width * 0.98,
       height: MediaQuery.of(context).size.height * 0.7,
       child:  ListView.builder(
-        padding: EdgeInsets.only(top: 7),
+        padding: const EdgeInsets.only(top: 7),
         itemCount: listev.length,
         itemBuilder: (context, index) => GestureDetector(
           onTap: () =>  onTap(false, listev[index]),

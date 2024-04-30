@@ -17,7 +17,7 @@ class _CustomButtomFavorState extends State<CustomButtomFavor> {
         icon = Icons.refresh;
         textButtom = "Processadno";
       });
-      Future.delayed(Duration(seconds: 2)).then((value) => setState(() {
+      Future.delayed(const Duration(seconds: 2)).then((value) => setState(() {
             icon = Icons.star_border;
             textButtom = "Remover a sua Agenda";
           }));
@@ -26,7 +26,7 @@ class _CustomButtomFavorState extends State<CustomButtomFavor> {
         icon = Icons.refresh;
         textButtom = "Processadno";
       });
-      Future.delayed(Duration(seconds: 2)).then((value) => setState(() {
+      Future.delayed(const Duration(seconds: 2)).then((value) => setState(() {
             icon = Icons.star;
             textButtom = "Adicionar a sua Agenda";
           }));

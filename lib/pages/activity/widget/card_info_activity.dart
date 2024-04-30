@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:chuva_dart/services/helpers/its_time.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -13,7 +10,7 @@ class CardInfoActivity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.1,
       child: Padding(

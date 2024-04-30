@@ -35,24 +35,22 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                       left: MediaQuery.of(context).size.width * 0.10,
                       bottom: 10,
                       top: 25),
-                  child: Container(
-                    child: Column(
-                      children: [
-                        Text(
-                          'Chuva 💜 Flutter',
+                  child: Column(
+                    children: [
+                      Text(
+                        'Chuva 💜 Flutter',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize:
+                                MediaQuery.of(context).size.width * 0.07,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      Text("Programação",
                           style: TextStyle(
                               color: Colors.white,
                               fontSize:
-                                  MediaQuery.of(context).size.width * 0.07,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        Text("Programação",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize:
-                                    MediaQuery.of(context).size.width * 0.05))
-                      ],
-                    ),
+                                  MediaQuery.of(context).size.width * 0.05))
+                    ],
                   ),
                 )
               ],

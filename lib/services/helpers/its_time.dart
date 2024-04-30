@@ -1,5 +1,4 @@
 
-
 class ItsTime {
 
 
@@ -25,11 +24,15 @@ return minute.toString();
       String minuteEnd = _fatchMinut(end.minute);
 
 
-    return " de $hourStart:${minuteStart} até ${hourEnd}:${minuteEnd}  ";
+    return " de $hourStart:$minuteStart até $hourEnd:$minuteEnd  ";
   }
 
 
-
+String resumday(String day){
+  var text = day.split('').sublist(0,3);
+  String resumo = "${text[0]}${text[1]}${text[2]}.";
+  return resumo;
+}
 
 
 }

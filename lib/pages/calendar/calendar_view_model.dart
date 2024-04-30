@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:chuva_dart/pages/calendar/calendar.dart';
 import 'package:chuva_dart/services/repository/models/data_models.dart';
 import 'package:chuva_dart/services/repository/repository.dart';
