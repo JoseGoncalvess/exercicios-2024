@@ -24,7 +24,7 @@ class CalendarView extends CalendarViewModel {
               ValueListenableBuilder(
                 valueListenable: events,
                 builder: (context, value, child) => ListEventsWidget(
-                  onTap: (isActivity, event) => context.go('/activity/$isActivity/$event'),
+                  onTap: (isActivity, event) => context.push(extra: event, '/activity/$isActivity'),
                   listev: value,
                   
                 ),

@@ -1,7 +1,15 @@
+import 'dart:convert';
+
+import 'package:chuva_dart/services/helpers/its_time.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+import '../../../services/repository/models/data_models.dart';
 
 class CardInfoActivity extends StatelessWidget {
-  const CardInfoActivity({super.key});
+  const CardInfoActivity({super.key, required this.event});
+ final Evento event;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +32,7 @@ class CardInfoActivity extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4.0),
                   child: Text(
-                    "Domingo 07:00h - 08:00h",
+                    "${DateFormat.EEEE("pt_BR").format(event.start)} ${ItsTime().timeforEvent(event.start, event.end)}",
                     style: TextStyle(
                         fontSize: MediaQuery.of(context).size.width * 0.04,
                         fontWeight: FontWeight.w400),
@@ -41,8 +49,9 @@ class CardInfoActivity extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                  child: Text(
-                    "Maputo",
+                  child:   
+                  Text(
+                    event.locations.first.title.ptBr??'',
                     style: TextStyle(
                         fontSize: MediaQuery.of(context).size.width * 0.04,
                         fontWeight: FontWeight.w400),

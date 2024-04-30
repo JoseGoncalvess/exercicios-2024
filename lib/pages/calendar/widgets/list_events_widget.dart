@@ -1,4 +1,6 @@
 
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -6,7 +8,7 @@ import '../../../services/repository/models/data_models.dart';
 import 'event_card_widget.dart';
 
 class ListEventsWidget extends StatelessWidget {
-  final Function( bool isActivity,Map<String,dynamic> event) onTap;
+  final Function( bool isActivity,Evento event) onTap;
   final List<Evento> listev;
   
   const ListEventsWidget(
@@ -21,7 +23,7 @@ class ListEventsWidget extends StatelessWidget {
         padding: EdgeInsets.only(top: 7),
         itemCount: listev.length,
         itemBuilder: (context, index) => GestureDetector(
-          onTap: () =>  onTap(false, listev[index].toJson()),
+          onTap: () =>  onTap(false, listev[index]),
           child: EventCardWidget(
             colorsBand:listev[index].category.color??'#B640F5' ,
           eventName:listev[index].type.title.ptBr! ,
