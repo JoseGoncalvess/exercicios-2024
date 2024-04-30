@@ -19,7 +19,7 @@ class CustomDetailsPerson extends StatelessWidget {
             child: Row(
               children: [
                  Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: 10.0),
+                  padding:  const EdgeInsets.symmetric(horizontal: 10.0),
                   child:picture.isEmpty?CircleAvatar(
                     radius: 60,
                     backgroundColor: Theme.of(context).primaryColor,
@@ -29,7 +29,7 @@ class CustomDetailsPerson extends StatelessWidget {
                     backgroundImage: NetworkImage(picture)
                   ),
                 ),
-                Container(
+                SizedBox(
                   width:  MediaQuery.of(context).size.width * 0.6,
                   height: MediaQuery.of(context).size.height*0.14, 
                     child: Column(
