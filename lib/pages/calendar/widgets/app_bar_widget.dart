@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:from_css_color/from_css_color.dart';
+import 'package:go_router/go_router.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWidget({super.key, required this.ct, required this.ontap});
@@ -25,11 +26,11 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 IconButton(
-                    onPressed: () => {},
+                    onPressed: () => context.push("/save"),
                     icon: Icon(
                         color: Colors.white,
                         size: MediaQuery.of(context).size.width * 0.1,
-                        Icons.arrow_back_ios_new_outlined)),
+                        Icons.bookmark)),
                 Padding(
                   padding: EdgeInsets.only(
                       left: MediaQuery.of(context).size.width * 0.10,

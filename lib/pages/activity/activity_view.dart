@@ -1,4 +1,5 @@
 import 'package:chuva_dart/pages/activity/activity_view_model.dart';
+import 'package:chuva_dart/pages/save%20events/save_events_view.dart';
 import 'package:chuva_dart/services/helpers/html_convert.dart';
 import 'package:flutter/material.dart';
 import 'package:from_css_color/from_css_color.dart';
@@ -10,6 +11,12 @@ import 'widget/card_info_activity.dart';
 import 'widget/custom_buttom_favor.dart';
 
 class ActivityView extends ActivityViewModel {
+  @override
+  void initState() {
+  
+    super.initState();
+    loadsId();
+  }
 
 
   @override
@@ -76,7 +83,10 @@ class ActivityView extends ActivityViewModel {
                     )),
               ),
                CardInfoActivity(event: widget.evento,),
-              const CustomButtomFavor(),
+               CustomButtomFavor(
+                isSaved: idSaved.value.contains(widget.evento.id),
+                onTap: () => SaveEventsView().saveEvent(widget.evento),
+              ),
               Container(
                 alignment: Alignment.center,
                 width: MediaQuery.of(context).size.width,

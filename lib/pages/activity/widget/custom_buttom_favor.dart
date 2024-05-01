@@ -1,15 +1,27 @@
+
 import 'package:flutter/material.dart';
 
 class CustomButtomFavor extends StatefulWidget {
-  const CustomButtomFavor({super.key});
+  const CustomButtomFavor({super.key, required this.onTap, required this.isSaved});
+  final Function() onTap;
+  final bool isSaved;
 
   @override
   State<CustomButtomFavor> createState() => _CustomButtomFavorState();
 }
 
 class _CustomButtomFavorState extends State<CustomButtomFavor> {
-  IconData icon = Icons.star;
-  String textButtom = "Adicionar a sua Agenda";
+  late IconData icon ;
+  late String textButtom = "Adicionar a sua Agenda";
+  @override
+  void initState() {
+    super.initState();
+   icon = widget.isSaved? Icons.star_border:Icons.star;
+   textButtom = widget.isSaved? "Remover a sua Agenda":"Adicionar a sua Agenda";
+  }
+
+
+  
 
   void favoractivity() {
     if (icon == Icons.star) {
@@ -47,6 +59,7 @@ class _CustomButtomFavorState extends State<CustomButtomFavor> {
                   borderRadius: BorderRadius.all(Radius.circular(6))))),
           onPressed: () {
             favoractivity();
+              widget.onTap();
           },
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,

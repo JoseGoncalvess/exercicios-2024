@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CardInformationWidget extends StatelessWidget {
-  const CardInformationWidget({super.key});
+  const CardInformationWidget({super.key, required this.text1, required this.text2});
+  final String text1;
+  final String text2;
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +12,8 @@ class CardInformationWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
-            "Nenheum Evento carregado!",
+           Text(
+            text1,
             style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
           ),
           Icon(
@@ -19,7 +21,7 @@ class CardInformationWidget extends StatelessWidget {
             color: Theme.of(context).primaryColor,
             size: MediaQuery.of(context).size.height * 0.1,
           ),
-          const Text("Selecioen uma data ou veja todos os evendo disponiveis",
+           Text(text2,
               style:
                   TextStyle(color: Colors.grey, fontWeight: FontWeight.w500)),
         ],

@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:chuva_dart/services/helpers/its_time.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:from_css_color/from_css_color.dart';
 
 import '../../../services/repository/models/people_models.dart';
@@ -8,7 +9,12 @@ import '../../../services/repository/models/people_models.dart';
 class EventCardWidget extends StatefulWidget {
   const EventCardWidget({
     Key? key,
- required this.title, required this.people, required this.start, required this.end, required this.eventName, required this.colorsBand,
+    required this.title,
+    required this.people,
+    required this.start,
+    required this.end,
+    required this.eventName,
+    required this.colorsBand, required this.issaved,
   }) : super(key: key);
   final String title;
   final List<PeopleModels> people;
@@ -16,6 +22,7 @@ class EventCardWidget extends StatefulWidget {
   final DateTime end;
   final String eventName;
   final String colorsBand;
+  final bool issaved;
 
   @override
   State<EventCardWidget> createState() => _EventCardWidgetState();
@@ -34,15 +41,14 @@ class _EventCardWidgetState extends State<EventCardWidget> {
                 borderRadius: BorderRadius.all(Radius.circular(6)),
                 color: Colors.white,
                 boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey, blurRadius: 5, spreadRadius: 3)
+                  BoxShadow(color: Colors.grey, blurRadius: 5, spreadRadius: 3)
                 ]),
             width: MediaQuery.of(context).size.width * 0.95,
             height: MediaQuery.of(context).size.height * 0.13,
             child: Row(
               children: [
                 Container(
-                  decoration:  BoxDecoration(
+                  decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(6),
                         bottomLeft: Radius.circular(6)),
@@ -58,33 +64,34 @@ class _EventCardWidgetState extends State<EventCardWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("${widget.eventName} ${ItsTime().timeforEvent(widget.start, widget.end)}",
+                      Text(
+                          "${widget.eventName} ${ItsTime().timeforEvent(widget.start, widget.end)}",
                           style: TextStyle(
-                              fontSize:
-                                  MediaQuery.sizeOf(context).width * 0.04,
+                              fontSize: MediaQuery.sizeOf(context).width * 0.032,
                               fontWeight: FontWeight.w400)),
-                      Flexible( 
-          
+                      Flexible(
                         child: Text(
-                           
                           widget.title,
                           style: TextStyle(
                               fontSize: MediaQuery.sizeOf(context).width * 0.04,
                               fontWeight: FontWeight.w500),
                         ),
                       ),
-                      Row( 
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                        children: widget.people.map((e) => Padding(
-                          padding: const EdgeInsets.only(right: 5.0),
-                          child: Text(e.name,
-                                style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.sizeOf(context).width * 0.033,
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.w500)),
-                        )).toList(),
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: widget.people
+                            .map((e) => Padding(
+                                  padding: const EdgeInsets.only(right: 5.0),
+                                  child: Text(e.name,
+                                      style: TextStyle(
+                                          fontSize:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.033,
+                                          color: Colors.grey,
+                                          fontWeight: FontWeight.w500)),
+                                ))
+                            .toList(),
                       )
                     ],
                   ),
@@ -92,9 +99,12 @@ class _EventCardWidgetState extends State<EventCardWidget> {
               ],
             ),
           ),
-        )
+        ),
+        widget.issaved==false?SizedBox(): Positioned(
+          top: -2,
+          right: 8,
+          child: Icon(Icons.bookmark, size: MediaQuery.of(context).size.width * 0.09, color: Colors.grey,))
       ],
     );
   }
 }
-

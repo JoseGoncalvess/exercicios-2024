@@ -7,9 +7,11 @@ import 'event_card_widget.dart';
 class ListEventsWidget extends StatelessWidget {
   final Function( bool isActivity,Evento event) onTap;
   final List<Evento> listev;
+  final bool issaved;
+  final List<int> idSave;
   
   const ListEventsWidget(
-      {super.key, required this.onTap, required this.listev});
+      {super.key, required this.onTap, required this.listev, required this.issaved, required this.idSave});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class ListEventsWidget extends StatelessWidget {
         itemBuilder: (context, index) => GestureDetector(
           onTap: () =>  onTap(false, listev[index]),
           child: EventCardWidget(
+            issaved: idSave.contains(listev[index].id),
             colorsBand:listev[index].category.color??'#B640F5' ,
           eventName:listev[index].type.title.ptBr! ,
           people:listev[index].people.isNotEmpty?listev[index].people:[],

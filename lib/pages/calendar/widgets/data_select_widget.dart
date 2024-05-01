@@ -2,8 +2,11 @@ import 'package:chuva_dart/pages/calendar/widgets/card_date_select_widget.dart';
 import 'package:flutter/material.dart';
 
 class DataSelectWidget extends StatefulWidget {
-  const DataSelectWidget({super.key, required this.ontap,});
-    final  Function (int day) ontap;
+  const DataSelectWidget({
+    super.key,
+    required this.ontap,
+  });
+  final Function(int day) ontap;
 
   @override
   State<DataSelectWidget> createState() => _DataSelectWidgetState();
@@ -40,7 +43,7 @@ class _DataSelectWidgetState extends State<DataSelectWidget> {
             children: data
                 .map((day) => GestureDetector(
                     onTap: () => {
-                         widget.ontap(day),
+                          widget.ontap(day),
                           setState(() {
                             pageValue = day;
                           }),

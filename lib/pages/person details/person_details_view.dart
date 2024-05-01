@@ -94,6 +94,7 @@ class PersonDetailsView extends PersonDetailsViewModel {@override
                             return GestureDetector(
                             onTap: () => context.push("/activity/$type", extra:value[index] ),
                             child: EventCardWidget(
+                              issaved: false,
                               colorsBand: value[index].category.color?? '#C7B884',
                               eventName: value[index].type.title.ptBr!,
                               end: value[index].end,
